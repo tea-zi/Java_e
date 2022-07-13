@@ -1,0 +1,80 @@
+package E7_배열7_기본이론;
+
+import java.util.Arrays;
+
+public class 배열7_기본이론5_기본문제1_문제2 {
+	/* 
+	 * 아래 class1~5 배열은 각반의 시험점수를 저장한데이터이다.
+	 * 
+	 * 각반의 총점이 높은순서대로 세반을 을 뽑아서 win 배열에 저장후 
+	 * win 배열의 모든 내용을 출력하시오.
+	 * 
+	 */
+	public static void main(String[] args) {
+
+		int class1[] = {10,54,65,22,15};
+		int class2[] = {65,14,24,75,25};
+		int class3[] = {50,45,25,87,49};
+		int class4[] = {11,66,5,21,95};
+		int class5[] = {70,84,64,21,11};
+	
+		int win[][] = new int[3][];
+		int temp[][] = new int [5][];
+		int sum[] = new int[5];
+		
+		for(int i=0; i<temp.length; i++) {
+			if(i == 0) {
+				temp[i] = class1;
+			}
+			else if(i == 1) {
+				temp[i] = class2;
+			}
+			else if(i == 2) {
+				temp[i] = class3;
+			}
+			else if(i == 3) {
+				temp[i] = class4;
+			}
+			else if(i == 4) {
+				temp[i] = class5;
+			}
+		}
+		for(int i=0; i<temp.length; i++) {
+			for(int j=0; j<temp[i].length; j++) {
+				sum[i] += temp[i][j];
+			}
+		}
+		for(int i = 0; i<win.length; i++) {
+			int max = 0;
+			int maxindex = 0;
+			for(int j=0; j<sum.length; j++) {
+				if(max < sum[j]) {
+					max = sum[j];
+					maxindex = j;
+				}	
+			}
+			if(maxindex == 0) {
+				win[i] = temp[0];
+				sum[maxindex] = 0;
+			}
+			else if(maxindex == 1) {
+				win[i] = temp[1];
+				sum[maxindex] = 0;
+			}
+			else if(maxindex == 2) {
+				win[i] = temp[2];
+				sum[maxindex] = 0;
+			}
+			else if(maxindex == 3) {
+				win[i] = temp[3];
+				sum[maxindex] = 0;
+			}
+			else if(maxindex == 4) {
+				win[i] = temp[4];
+				sum[maxindex] = 0;
+			}
+			System.out.print(maxindex + " ==> ");
+			System.out.println(Arrays.toString(win[i]));
+		}
+	}
+}
